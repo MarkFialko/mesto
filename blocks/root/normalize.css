@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&display=swap');
+
 body, html {
     background-color: #000000;
     color: #ffffff;
-    height: 100%;
+    height: 100vh;
+    font-family: "Inter";
 }
+
+
 
 [class*="__container"] {
     max-width: 880px;

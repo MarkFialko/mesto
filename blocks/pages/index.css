@@ -3,5 +3,12 @@
 @import url(../content/content.css);
 
 
+@import url(../header/header.css);
 @import url(../header/__container/header__container.css);
+
+@import url(../footer/footer.css);
+@import url(../footer/__container/footer__container.css);
+
+
+
 
