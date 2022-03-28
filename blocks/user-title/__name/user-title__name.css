@@ -1,0 +1,11 @@
+.user-title__name {
+    max-width: 320px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+@media (max-width: 450px) {
+    .user-title__name {
+        max-width: 200px;
+    }
+}
