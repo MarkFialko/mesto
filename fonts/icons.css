@@ -6,7 +6,7 @@
     font-display: block;
 }
 
-[class^="_icon-"], [class*=" _icon-"] {
+[class^="icon-"], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icons';
     speak: never;
@@ -21,21 +21,21 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-._icon-close:before {
+.icon-close:before {
     content: "\e900";
     color: #fff;
 }
 
-._icon-pen:before {
+.icon-pen:before {
     content: "\e901";
     color: #fff;
 }
 
-._icon-plus:before {
+.icon-plus:before {
     content: "\e902";
     color: #fff;
 }
 
-._icon-like:before {
+.icon-like:before {
     content: "\e903";
 }
