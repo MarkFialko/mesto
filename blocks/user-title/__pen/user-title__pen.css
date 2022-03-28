@@ -10,6 +10,7 @@
     transition: opacity .3s ease-in-out;
     cursor: pointer;
 }
+
 .user-title__pen:hover {
     opacity: 0.6;
 }

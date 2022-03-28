@@ -34,6 +34,7 @@ ul[class],
 ol[class] {
     padding: 0;
 }
+
 h1,
 h2,
 h3,
@@ -52,15 +53,18 @@ dd {
 
 a:focus,
 a:active {
-// outline: none;
+/ / outline: none;
 }
+
 a {
     color: inherit;
 }
+
 a:link,
 a:visited {
     text-decoration: none;
 }
+
 a:hover {
     text-decoration: none;
 }
@@ -72,6 +76,7 @@ body {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
 }
+
 body._active {
     overflow: hidden;
 }

@@ -2,7 +2,6 @@
 
 @import url(../content/content.css);
 
-
 @import url(../header/header.css);
 @import url(../header/__container/header__container.css);
 
@@ -11,16 +10,12 @@
 
 @import url(../../fonts/icons.css);
 
-
-
 @import url(../content/content.css);
 @import url(../content/__container/content__container.css);
 @import url(../content/__gallery/content__gallery.css);
 
-
 @import url(../content-gallery/content-gallery.css);
 @import url(../content-gallery/__card/content-gallery__card.css);
-
 
 @import url(../card/card.css);
 @import url(../card/__description/card__description.css);
@@ -55,9 +50,3 @@
 @import url(../popup/__form/popup__form.css);
 @import url(../popup/__input/popup__input.css);
 @import url(../popup/__close/popup__close.css);
-
-
-
-
-
-

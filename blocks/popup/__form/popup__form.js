@@ -11,7 +11,6 @@ let userDescriptionPopup = popupForm.children[1];  // input описания
 const userPlaceholder = userNamePopup.placeholder;
 const userDescriptionPlaceholder = userDescriptionPopup.placeholder;
 
-
 saveButton.addEventListener('click', function () {
     if (userNamePopup.value.length !== 0) {
         name.innerText = userNamePopup.value;
@@ -21,7 +20,6 @@ saveButton.addEventListener('click', function () {
     }
 })
 
-
 userNamePopup.addEventListener('focus', function () { // убирает placeholder у имени
     userNamePopup.placeholder = "";
 })
@@ -30,7 +28,6 @@ userNamePopup.addEventListener('blur', function () {   // возвращает p
     userNamePopup.placeholder = userPlaceholder;
 })
 
-
 userDescriptionPopup.addEventListener('focus', function () { // убирает placeholder у описания
     userDescriptionPopup.placeholder = "";
 })
@@ -38,5 +35,3 @@ userDescriptionPopup.addEventListener('focus', function () { // убирает p
 userDescriptionPopup.addEventListener('blur', function () {   // возвращает placeholder у описания
     userDescriptionPopup.placeholder = userDescriptionPlaceholder;
 })
-
-

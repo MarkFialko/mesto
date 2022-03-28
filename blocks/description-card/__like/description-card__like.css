@@ -3,6 +3,7 @@
     color: #000000;
     transition: opacity .3s ease-in;
 }
+
 .description-card__like:hover {
     opacity: 0.5;
 }

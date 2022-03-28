@@ -4,7 +4,8 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-@media (max-width: 450px) {
+
+@media (max-width: 480px) {
     .user-title__name {
         max-width: 200px;
     }
