@@ -22,9 +22,6 @@
 @import url(../content-gallery/__card/content-gallery__card.css);
 
 
-
-
-
 @import url(../card/card.css);
 @import url(../card/__description/card__description.css);
 @import url(../card/__image/card__image.css);
@@ -46,10 +43,18 @@
 @import url(../user-description/__subtitle/user-description__subtitle.css);
 @import url(../user-description/__title/user-description__title.css);
 
-
 @import url(../user-title/user-title.css);
 @import url(../user-title/__name/user-title__name.css);
 @import url(../user-title/__pen/user-title__pen.css);
+
+@import url(../popup/popup.css);
+@import url(../popup/__wrapper/popup__wrapper.css);
+@import url(../popup/__content/popup__content.css);
+@import url(../popup/__title/popup__title.css);
+@import url(../popup/__button/popup__button.css);
+@import url(../popup/__form/popup__form.css);
+@import url(../popup/__input/popup__input.css);
+@import url(../popup/__close/popup__close.css);
 
 
 
