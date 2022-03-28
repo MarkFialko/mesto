@@ -4,7 +4,7 @@
     line-height: 48px;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 768px) {
     .user-description__title {
         font-size: 27px;
         line-height: 33px;

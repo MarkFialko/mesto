@@ -4,13 +4,13 @@
     gap: 30px;
 }
 
-@media (max-width:700px) {
+@media (max-width: 768px) {
     .content-info-user {
         margin-bottom: 40px;
     }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 480px) {
     .content-info-user {
         flex-direction: column;
     }
