@@ -4,7 +4,7 @@ body, html {
     background-color: #000000;
     color: #ffffff;
     height: 100%;
-    font-family: "Inter";
+    font-family: Inter;
     margin: 0;
 }
 
@@ -71,6 +71,9 @@ body {
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
+}
+body._active {
+    overflow: hidden;
 }
 
 /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
