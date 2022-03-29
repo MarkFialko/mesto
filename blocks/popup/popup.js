@@ -2,12 +2,12 @@ const editButton = document.querySelector(".user-title__pen");
 
 function activeBody() {
     let body = document.querySelector("body");
-    body.classList.toggle("_active");
+    body.classList.toggle("body_active");
 
 }
 function activePopup() {
     let popup = document.querySelector(".popup");
-    popup.classList.toggle("_active");
+    popup.classList.toggle("popup_active");
 }
 
 function toggleActive(e) {
@@ -17,4 +17,3 @@ function toggleActive(e) {
 }
 
 editButton.addEventListener('click', toggleActive)
-

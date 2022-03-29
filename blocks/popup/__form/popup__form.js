@@ -18,13 +18,21 @@ function isValid(element) {
     return false;
 }
 
-saveButton.addEventListener('click', function () {
+function removeActivePopup() {
+    let popup = document.querySelector(".popup");
+    popup.classList.remove("popup_active");
+
+}
+
+saveButton.addEventListener('click', function (e) {
     if (isValid(userNamePopup)) {
         name.innerText = userNamePopup.value;
     }
     if (isValid(userDescriptionPopup)) {
         description.innerText = userDescriptionPopup.value;
     }
+    e.preventDefault();
+    removeActivePopup();
 })
 
 userNamePopup.addEventListener('blur', function () {   // возвращает placeholder у имени
