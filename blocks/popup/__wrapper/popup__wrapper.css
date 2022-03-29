@@ -6,10 +6,4 @@
     height: 330px;
     display: flex;
     margin: auto;
-    transform: scale(0);
-    transition: all .3s ease-in-out;
-}
-
-.popup._active .popup__wrapper {
-    transform: scale(1);
 }

@@ -9,9 +9,5 @@
     display: flex;
     padding: 20px;
     transform: scale(0);
-}
-
-._active {
-    transform: scale(1);
-    background-color: rgba(0, 0, 0, 0.5);
+    transition: all .3s ease-in-out;
 }
