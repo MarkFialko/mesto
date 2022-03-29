@@ -2,7 +2,6 @@
 
 @import url(../content/content.css);
 
-@import url(../header/header.css);
 @import url(../header/__container/header__container.css);
 
 @import url(../footer/footer.css);
@@ -14,8 +13,6 @@
 @import url(../content/__container/content__container.css);
 @import url(../content/__gallery/content__gallery.css);
 
-@import url(../content-gallery/content-gallery.css);
-@import url(../content-gallery/__card/content-gallery__card.css);
 
 @import url(../card/card.css);
 @import url(../card/__description/card__description.css);
@@ -31,10 +28,8 @@
 @import url(../content-info/__button/content-info__button.css);
 @import url(../content-info/__user/content-info__user.css);
 
-@import url(../content-info-user/__description/content-info-user__description.css);
 @import url(../content-info-user/__image/content-info-user__image.css);
 
-@import url(../user-description/user-description.css);
 @import url(../user-description/__subtitle/user-description__subtitle.css);
 @import url(../user-description/__title/user-description__title.css);
 
@@ -47,6 +42,5 @@
 @import url(../popup/__content/popup__content.css);
 @import url(../popup/__title/popup__title.css);
 @import url(../popup/__button/popup__button.css);
-@import url(../popup/__form/popup__form.css);
 @import url(../popup/__input/popup__input.css);
 @import url(../popup/__close/popup__close.css);
