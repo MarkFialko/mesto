@@ -11,27 +11,35 @@ let userDescriptionPopup = popupForm.children[1];  // input описания
 const userPlaceholder = userNamePopup.placeholder;
 const userDescriptionPlaceholder = userDescriptionPopup.placeholder;
 
+function isValid(element) {
+    if (element.value.length !== 0) {
+        return true;
+    }
+    return false;
+}
+
 saveButton.addEventListener('click', function () {
-    if (userNamePopup.value.length !== 0) {
+    if (isValid(userNamePopup)) {
         name.innerText = userNamePopup.value;
     }
-    if (userDescriptionPopup.value.length !== 0) {
+    if (isValid(userDescriptionPopup)) {
         description.innerText = userDescriptionPopup.value;
     }
-})
-
-userNamePopup.addEventListener('focus', function () { // убирает placeholder у имени
-    userNamePopup.placeholder = "";
 })
 
 userNamePopup.addEventListener('blur', function () {   // возвращает placeholder у имени
     userNamePopup.placeholder = userPlaceholder;
 })
 
-userDescriptionPopup.addEventListener('focus', function () { // убирает placeholder у описания
-    userDescriptionPopup.placeholder = "";
-})
-
 userDescriptionPopup.addEventListener('blur', function () {   // возвращает placeholder у описания
     userDescriptionPopup.placeholder = userDescriptionPlaceholder;
 })
+
+function removePlaceholder(element) {
+    element.addEventListener('focus', function () {
+        element.placeholder = "";
+    })
+}
+
+removePlaceholder(userNamePopup);
+removePlaceholder(userDescriptionPopup);
