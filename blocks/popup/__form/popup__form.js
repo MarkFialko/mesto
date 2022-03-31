@@ -35,9 +35,9 @@ saveButton.addEventListener('click', function (e) {
     if (isValid(userDescriptionPopup)) {
         description.innerText = userDescriptionPopup.value;
     }
-    e.preventDefault();
     removeActivePopup();
     removeActiveBody();
+    e.preventDefault();
 })
 
 userNamePopup.addEventListener('blur', function () {   // возвращает placeholder у имени
