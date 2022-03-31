@@ -1,22 +1,23 @@
-const editButton = document.querySelector(".user-title__pen");
+const closeButton = document.querySelector(".popup__close");
 
-function activeBody() {
+function removeActiveBody() {
     let body = document.querySelector("body");
-    body.classList.toggle("body_active");
-
+    body.classList.remove("body_active");
 }
-function activePopup() {
+
+function removeActivePopup() {
     let popup = document.querySelector(".popup");
-    popup.classList.toggle("popup_active");
+    popup.classList.remove("popup_active");
+
 }
 
-function toggleActive(e) {
-    activeBody();
-    activePopup();
+function removeActive(e) {
+    removeActiveBody();
+    removeActivePopup();
     e.preventDefault();
 }
 
-editButton.addEventListener('click', toggleActive)
+closeButton.addEventListener('click', removeActive);
 
 let saveButton = document.querySelector(".popup__button");
 
@@ -41,7 +42,11 @@ function isValid(element) {
 function removeActivePopup() {
     let popup = document.querySelector(".popup");
     popup.classList.remove("popup_active");
+}
 
+function removeActiveBody() {
+    let body = document.querySelector("body");
+    body.classList.remove("body_active");
 }
 
 saveButton.addEventListener('click', function (e) {
@@ -53,6 +58,7 @@ saveButton.addEventListener('click', function (e) {
     }
     e.preventDefault();
     removeActivePopup();
+    removeActiveBody();
 })
 
 userNamePopup.addEventListener('blur', function () {   // возвращает placeholder у имени
@@ -72,23 +78,22 @@ function removePlaceholder(element) {
 removePlaceholder(userNamePopup);
 removePlaceholder(userDescriptionPopup);
 
-const closeButton = document.querySelector(".popup__close");
+const editButton = document.querySelector(".user-title__pen");
 
-function removeActiveBody() {
+function activeBody() {
     let body = document.querySelector("body");
-    body.classList.remove("body_active");
-}
+    body.classList.toggle("body_active");
 
-function removeActivePopup() {
+}
+function activePopup() {
     let popup = document.querySelector(".popup");
-    popup.classList.remove("popup_active");
-
+    popup.classList.toggle("popup_active");
 }
 
-function removeActive(e) {
-    removeActiveBody();
-    removeActivePopup();
+function toggleActive(e) {
+    activeBody();
+    activePopup();
     e.preventDefault();
 }
 
-closeButton.addEventListener('click', removeActive);
+editButton.addEventListener('click', toggleActive)

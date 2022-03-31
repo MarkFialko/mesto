@@ -21,7 +21,11 @@ function isValid(element) {
 function removeActivePopup() {
     let popup = document.querySelector(".popup");
     popup.classList.remove("popup_active");
+}
 
+function removeActiveBody() {
+    let body = document.querySelector("body");
+    body.classList.remove("body_active";)
 }
 
 saveButton.addEventListener('click', function (e) {
@@ -33,6 +37,7 @@ saveButton.addEventListener('click', function (e) {
     }
     e.preventDefault();
     removeActivePopup();
+    removeActiveBody();
 })
 
 userNamePopup.addEventListener('blur', function () {   // возвращает placeholder у имени
