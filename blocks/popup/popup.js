@@ -5,15 +5,15 @@ export function Popup() {
     function activeBody() {
         let body = document.querySelector("body");
         body.classList.toggle("body_active");
-
     }
 
-    function activePopup() {
+    function activePopup(e) {
         let popup = document.querySelector(".popup");
         popup.classList.toggle("popup_active");
+        e.preventDefault();
     }
 
-    function toggleActive(e) {
+    function toggleActive() {
         activeBody();
         activePopup();
         e.preventDefault();
