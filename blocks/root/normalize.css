@@ -7,6 +7,9 @@ body, html {
     font-family: Inter;
     margin: 0;
 }
+html {
+    margin-right: calc(-1 * (100vw - 100%));
+}
 
 [class*="__container"] {
     max-width: 880px;
@@ -77,7 +80,6 @@ body {
 
 .body_active {
     overflow: hidden;
-    margin-right: calc(-1 * (100vw - 100%));
 }
 
 /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
