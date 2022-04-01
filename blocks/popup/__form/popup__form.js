@@ -1,58 +1,63 @@
-let saveButton = document.querySelector(".popup__button");
+export function PopupForm() {
 
-let name = document.querySelector(".user-title__name");
-let description = document.querySelector(".user-description__subtitle");
+    let saveButton = document.querySelector(".popup__button");
 
-let popupForm = document.querySelector(".popup__form");
+    let name = document.querySelector(".user-title__name");
+    let description = document.querySelector(".user-description__subtitle");
 
-let userNamePopup = popupForm.children[0];  // input имени
-let userDescriptionPopup = popupForm.children[1];  // input описания
+    let popupForm = document.querySelector(".popup__form");
 
-const userPlaceholder = userNamePopup.placeholder;
-const userDescriptionPlaceholder = userDescriptionPopup.placeholder;
+    let userNamePopup = popupForm.children[0];  // input имени
+    let userDescriptionPopup = popupForm.children[1];  // input описания
 
-function isValid(element) {
-    if (element.value.length !== 0) {
-        return true;
+    const userPlaceholder = userNamePopup.placeholder;
+    const userDescriptionPlaceholder = userDescriptionPopup.placeholder;
+
+    function isValid(element) {
+        if (element.value.length !== 0) {
+            return true;
+        }
+        return false;
     }
-    return false;
-}
 
-function removeActivePopup() {
-    let popup = document.querySelector(".popup");
-    popup.classList.remove("popup_active");
-}
-
-function removeActiveBody() {
-    let body = document.querySelector("body");
-    body.classList.remove("body_active";)
-}
-
-saveButton.addEventListener('click', function (e) {
-    if (isValid(userNamePopup)) {
-        name.innerText = userNamePopup.value;
+    function removeActivePopup() {
+        let popup = document.querySelector(".popup");
+        popup.classList.remove("popup_active");
     }
-    if (isValid(userDescriptionPopup)) {
-        description.innerText = userDescriptionPopup.value;
+
+    function removeActiveBody() {
+        let body = document.querySelector("body");
+        body.classList.remove("body_active");
+
     }
-    removeActivePopup();
-    removeActiveBody();
-    e.preventDefault();
-})
 
-userNamePopup.addEventListener('blur', function () {   // возвращает placeholder у имени
-    userNamePopup.placeholder = userPlaceholder;
-})
-
-userDescriptionPopup.addEventListener('blur', function () {   // возвращает placeholder у описания
-    userDescriptionPopup.placeholder = userDescriptionPlaceholder;
-})
-
-function removePlaceholder(element) {
-    element.addEventListener('focus', function () {
-        element.placeholder = "";
+    saveButton.addEventListener('click', function (e) {
+        if (isValid(userNamePopup)) {
+            name.innerText = userNamePopup.value;
+        }
+        if (isValid(userDescriptionPopup)) {
+            description.innerText = userDescriptionPopup.value;
+        }
+        removeActivePopup();
+        removeActiveBody();
+        e.preventDefault();
     })
-}
 
-removePlaceholder(userNamePopup);
-removePlaceholder(userDescriptionPopup);
+    userNamePopup.addEventListener('blur', function () {   // возвращает placeholder у имени
+        userNamePopup.placeholder = userPlaceholder;
+    })
+
+    userDescriptionPopup.addEventListener('blur', function () {   // возвращает placeholder у описания
+        userDescriptionPopup.placeholder = userDescriptionPlaceholder;
+    })
+
+    function removePlaceholder(element) {
+        element.addEventListener('focus', function () {
+            element.placeholder = "";
+        })
+    }
+
+    removePlaceholder(userNamePopup);
+    removePlaceholder(userDescriptionPopup);
+
+}
