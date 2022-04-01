@@ -7,8 +7,10 @@ body, html {
     font-family: Inter;
     margin: 0;
 }
+
 html {
     margin-right: calc(-1 * (100vw - 100%));
+    overflow-x: hidden;
 }
 
 [class*="__container"] {
