@@ -80,9 +80,7 @@ body {
     overflow-x: hidden;
 }
 
-.body_active {
-    overflow: hidden;
-}
+
 
 /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
 ul[class],
