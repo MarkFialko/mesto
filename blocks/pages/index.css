@@ -1,7 +1,5 @@
-@import url(../root/normalize.css);
-
 @import url(../content/content.css);
-
+@import url(../body/_active/body_active.css);
 @import url(../header/__container/header__container.css);
 
 @import url(../footer/footer.css);
