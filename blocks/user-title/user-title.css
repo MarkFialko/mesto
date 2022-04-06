@@ -1,0 +1,6 @@
+.user-title {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+}

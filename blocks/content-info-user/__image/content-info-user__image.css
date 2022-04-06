@@ -1,0 +1,11 @@
+.content-info-user__image {
+    display: block;
+    width: 120px;
+    height: 120px;
+}
+
+.content-info-user__image img {
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}

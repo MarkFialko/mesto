@@ -1,0 +1,5 @@
+@media (max-width: 768px) {
+    .user-description__subtitle {
+        text-align: center;
+    }
+}

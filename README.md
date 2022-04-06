@@ -1,17 +1,15 @@
-# Проект: Место
+# Project: Mesto
+___
+### Overview
 
-### Обзор
+* :pencil2: Study project
+* :computer: Working with JavaScript
+* :orange_book: BEM file structure (Nested)
+* :white_check_mark: Working with HTML and CSS
+* :o: Working with popup
+* :heavy_plus_sign: Working with icon font
 
-* Figma
-* Картинки
+### Plans
 
-**Figma**
-
-* [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)
-
-**Картинки**
-
-Доставать картинки предстоит из Фигмы. Это расхожая практика, поэтому полезно потренироваться.
-Не забудьте [оптимизировать картинки](https://tinypng.com/), чтобы ваш сайт загружался быстрее.
-
-Удачи!
+* Add the ability for the user to add their own cards
+* Add the ability to change the user's avatar

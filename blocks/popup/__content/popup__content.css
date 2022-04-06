@@ -1,0 +1,6 @@
+.popup__content {
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
