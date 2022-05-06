@@ -1,3 +1,4 @@
+@import url(../root/normalize.css);
 @import url(../content/content.css);
 @import url(../body/_active/body_active.css);
 @import url(../header/__container/header__container.css);
@@ -6,6 +7,9 @@
 @import url(../footer/__container/footer__container.css);
 
 @import url(../../fonts/icons.css);
+
+@import url(../icon/icon.css);
+@import url(../icon/__trash/icon__trash.css);
 
 @import url(../content/__container/content__container.css);
 @import url(../content/__gallery/content__gallery.css);
@@ -33,9 +37,14 @@
 
 @import url(../popup/popup.css);
 @import url(../popup/__wrapper/popup__wrapper.css);
+@import url(../popup/__wrapper/_image/popup__wrapper_image.css);
 @import url(../popup/__content/popup__content.css);
 @import url(../popup/__title/popup__title.css);
 @import url(../popup/__button/popup__button.css);
 @import url(../popup/__input/popup__input.css);
 @import url(../popup/__close/popup__close.css);
 @import url(../popup/_active/popup_active.css);
+@import url(../popup/__image/popup__image.css);
+@import url(../popup/__image/_text/popup__image_text.css);
+@import url(../popup/__image/_link/popup__image_link.css);
+@import url(../popup/__image/_content/popup__image_content.css);
