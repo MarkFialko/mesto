@@ -1,0 +1,11 @@
+.popup__image_content {
+    position: relative;
+    opacity: 0;
+    transform: scale(0);
+    transition: all .3s ease-in-out;
+}
+
+.popup_active > .popup__image_content {
+    transform: scale(1);
+    opacity: 1;
+}
