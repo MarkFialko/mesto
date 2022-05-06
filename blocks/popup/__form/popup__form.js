@@ -1,31 +1,30 @@
-export function PopupForm() {
+import {initialCards,renderElements} from "../../card/card.js"
 
-    let saveButton = document.querySelector(".popup__button");
+export function isValid(element) {
+    if (element.value.length !== 0) {
+        return true;
+    }
+    return false;
+}
 
+export function removeActivePopup(popupSelector) {
+    let popup = document.querySelector(`.${popupSelector}`);
+    popup.classList.remove("popup_active");
+}
+
+export function removeActiveBody() {
+    let body = document.querySelector("body");
+    body.classList.remove("body_active");
+
+}
+
+export function PopupUserForm() {
+    const saveButton = document.querySelector(".popup__button");
     let name = document.querySelector(".user-title__name");
     let description = document.querySelector(".user-description__subtitle");
-
-    let popupForm = document.querySelector(".popup__form");
-
-    let userNamePopup = popupForm.children[0];  // input имени
-    let userDescriptionPopup = popupForm.children[1];  // input описания
-    function isValid(element) {
-        if (element.value.length !== 0) {
-            return true;
-        }
-        return false;
-    }
-
-    function removeActivePopup() {
-        let popup = document.querySelector(".popup");
-        popup.classList.remove("popup_active");
-    }
-
-    function removeActiveBody() {
-        let body = document.querySelector("body");
-        body.classList.remove("body_active");
-
-    }
+    const popupForm = document.querySelector(".popup__form");
+    let userNamePopup = popupForm.children[0];
+    let userDescriptionPopup = popupForm.children[1];
 
     saveButton.addEventListener('click', function (e) {
         if (isValid(userNamePopup)) {
@@ -36,9 +35,32 @@ export function PopupForm() {
             description.innerText = userDescriptionPopup.value;
             userDescriptionPopup.placeholder = userDescriptionPopup.value;
         }
-        removeActivePopup();
+        removeActivePopup("popup__user");
         removeActiveBody();
         e.preventDefault();
     })
+}
 
+export function PopupCardForm() {
+    const saveButton = document.querySelector(".popup__button_create");
+    let popupForm = document.querySelector(".popup__form_card");
+
+    let userNamePopup = popupForm.children[0];
+    let userDescriptionPopup = popupForm.children[1];
+
+    saveButton.addEventListener('click', function (e) {
+        if (isValid(userNamePopup) && isValid(userDescriptionPopup)) {
+            const card = {
+                name: `${userNamePopup.value}`,
+                link: `${userDescriptionPopup.value}`
+            }
+            initialCards.push(card);
+            renderElements();
+            userNamePopup.value = '';
+            userDescriptionPopup.value = '';
+        }
+        removeActivePopup("popup__card");
+        removeActiveBody();
+        e.preventDefault();
+    })
 }
