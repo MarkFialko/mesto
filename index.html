@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Место</title>
-    <link rel="stylesheet" href="./blocks/root/normalize.css">
     <link rel="stylesheet" href="./blocks/pages/index.css">
 </head>
 <body>
@@ -20,73 +19,20 @@
             <div class="content__info content-info">
                 <div class="content-info__user content-info-user">
                     <div class="content-info-user__image">
-                        <img src="./images/user.jpg" alt="">
+                        <img src="./images/user.jpg" alt="Аватар пользователя">
                     </div>
                     <div class="content-info-user__description user-description">
                         <div class="user-description__title user-title">
                             <div class="user-title__name">Жак-Ив Кусто</div>
-                            <div class="user-title__pen"><p class="icon-pen"></p></div>
+                            <div class="user-title__pen edit__button"><p class="icon-pen"></p></div>
                         </div>
                         <p class="user-description__subtitle">Исследователь океана</p>
                     </div>
                 </div>
-                <a href="#" class="content-info__button icon-plus"></a>
+                <a href="#" class="content-info__button icon-plus edit__button"></a>
             </div>
             <div class="content__gallery">
-                <div class="card content-gallery__card">
-                    <div class="card__image">
-                        <img src="./images/card-6.png" alt="">
-                    </div>
-                    <div class="card__description description-card">
-                        <h3 class="description-card__title">Карачаевск</h3>
-                        <div class="description-card__like icon-like"></div>
-                    </div>
-                </div>
-                <div class="card content-gallery__card">
-                    <div class="card__image">
-                        <img src="./images/card-2.png" alt="">
-                    </div>
-                    <div class="card__description description-card">
-                        <h3 class="description-card__title">Гора Эльбрус</h3>
-                        <div class="description-card__like icon-like"></div>
-                    </div>
-                </div>
-                <div class="card content-gallery__card">
-                    <div class="card__image">
-                        <img src="./images/card-3.png" alt="">
-                    </div>
-                    <div class="card__description description-card">
-                        <h3 class="description-card__title">Домбай</h3>
-                        <div class="description-card__like icon-like"></div>
-                    </div>
-                </div>
-                <div class="card content-gallery__card">
-                    <div class="card__image">
-                        <img src="./images/card-4.png" alt="">
-                    </div>
-                    <div class="card__description description-card">
-                        <h3 class="description-card__title">Гора эльбрус</h3>
-                        <div class="description-card__like icon-like"></div>
-                    </div>
-                </div>
-                <div class="card content-gallery__card">
-                    <div class="card__image">
-                        <img src="./images/card-5.png" alt="">
-                    </div>
-                    <div class="card__description description-card">
-                        <h3 class="description-card__title">Домбай</h3>
-                        <div class="description-card__like icon-like"></div>
-                    </div>
-                </div>
-                <div class="card content-gallery__card">
-                    <div class="card__image">
-                        <img src="./images/card-6.png" alt="">
-                    </div>
-                    <div class="card__description description-card">
-                        <h3 class="description-card__title">Карачаево-Черкессия</h3>
-                        <div class="description-card__like icon-like"></div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </main>
@@ -95,19 +41,55 @@
             <p>© 2022 Mesto Russia</p>
         </div>
     </footer>
-    <div class="popup">
+    <div class="popup popup__user">
         <div class="popup__wrapper">
             <div class="popup__content">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form action="#" class="popup__form">
-                    <input type="text" class="popup__input" placeholder="Жак-Ив Кусто">
-                    <input type="text" class="popup__input" placeholder="Исследователь океана">
+                    <input type="text" class="popup__input popup__input_name" placeholder="Жак-Ив Кусто">
+                    <input type="text" class="popup__input popup__input_text-content"
+                           placeholder="Исследователь океана">
                 </form>
                 <a type="submit" href="#" class="popup__button">Сохранить</a>
                 <div class="popup__close icon-close"></div>
             </div>
         </div>
     </div>
+    <div class="popup popup__card">
+        <div class="popup__wrapper">
+            <div class="popup__content">
+                <h2 class="popup__title">Новое место</h2>
+                <form action="#" class="popup__form popup__form_card">
+                    <input type="text" class="popup__input popup__input_name" placeholder="Название">
+                    <input type="text" class="popup__input popup__input_text-content"
+                           placeholder="Ссылка на картинку">
+                </form>
+                <a type="submit" href="#" class="popup__button popup__button_create">Создать</a>
+                <div class="popup__close icon-close"></div>
+            </div>
+        </div>
+    </div>
+    <div class="popup popup__image">
+        <div class="popup__image_content">
+            <img class="popup__image_link"
+                 src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg" alt="">
+            <p class="popup__image_text">Карачаево черкессия</p>
+            <div class="popup__close icon-close"></div>
+        </div>
+
+    </div>
+    <template class="card-template">
+        <div class="card content-gallery__card">
+            <div class="icon__trash"></div>
+            <div class="card__image">
+                <img class="card__image_link" src="" alt="Изображение местности">
+            </div>
+            <div class="card__description description-card">
+                <h3 class="description-card__title"></h3>
+                <div class="description-card__like icon-like"></div>
+            </div>
+        </div>
+    </template>
 </div>
 <script type="module" src="./blocks/pages/index.js"></script>
 </body>
