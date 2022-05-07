@@ -54,6 +54,8 @@ function renderCard(userNamePopup,userDescriptionPopup) {
     removeActiveBody();
 }
 
+const enterKey = 13;
+
 export function PopupCardForm() {
     const saveButton = document.querySelector(".popup__button_create");
     let popupForm = document.querySelector(".popup__form_card");
@@ -62,13 +64,13 @@ export function PopupCardForm() {
     let userDescriptionPopup = popupForm.children[1];
 
     userNamePopup.addEventListener('keypress', (e) => {
-        if (isValid(userNamePopup) && isValid(userDescriptionPopup) && e.which === 13) {
+        if (isValid(userNamePopup) && isValid(userDescriptionPopup) && e.which === enterKey) {
             renderCard(userNamePopup,userDescriptionPopup);
         }
     })
 
     userDescriptionPopup.addEventListener('keypress', (e) => {
-        if (isValid(userNamePopup) && isValid(userDescriptionPopup) && e.which === 13) {
+        if (isValid(userNamePopup) && isValid(userDescriptionPopup) && e.which === enterKey) {
             renderCard(userNamePopup,userDescriptionPopup);
         }
     })
