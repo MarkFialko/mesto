@@ -35,24 +35,3 @@
     content: "\e902";
     color: #fff;
 }
-
-.icon-like {
-    min-width: 22px;
-    height: 19px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-image: url("../images/like.svg");
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-}
-.icon-like:hover {
-    opacity: 0.5;
-}
-
-.icon-like_active {
-background-image: url("../images/like-dark.svg");
-}
-.icon-like_active:hover {
-    opacity: 1;
-}
