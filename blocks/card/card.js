@@ -61,9 +61,9 @@ export class Card {
             popup.querySelector(".popup__image_text").textContent = thisImageTitle;
         })
 
-        const likeIcon = this._element.querySelector(".icon-like");
+        const likeIcon = this._element.querySelector(".icon__like");
         likeIcon.addEventListener('click', () => {
-            likeIcon.classList.toggle("icon-like_active");
+            likeIcon.classList.toggle("icon__like_active");
         })
 
         const trashButton = this._element.querySelector(".icon__trash");
