@@ -1,4 +1,4 @@
-import {initialCards,renderElements} from "../../card/card.js"
+import {initialCards, renderElements} from "../../card/card.js"
 
 export function isValid(element) {
     if (element.value.length !== 0) {
@@ -41,6 +41,19 @@ export function PopupUserForm() {
     })
 }
 
+function renderCard(userNamePopup,userDescriptionPopup) {
+    const card = {
+        name: `${userNamePopup.value}`,
+        link: `${userDescriptionPopup.value}`
+    }
+    initialCards.push(card);
+    renderElements();
+    userNamePopup.value = '';
+    userDescriptionPopup.value = '';
+    removeActivePopup("popup__card");
+    removeActiveBody();
+}
+
 export function PopupCardForm() {
     const saveButton = document.querySelector(".popup__button_create");
     let popupForm = document.querySelector(".popup__form_card");
@@ -48,19 +61,21 @@ export function PopupCardForm() {
     let userNamePopup = popupForm.children[0];
     let userDescriptionPopup = popupForm.children[1];
 
+    userNamePopup.addEventListener('keypress', (e) => {
+        if (isValid(userNamePopup) && isValid(userDescriptionPopup) && e.which === 13) {
+            renderCard(userNamePopup,userDescriptionPopup);
+        }
+    })
+
+    userDescriptionPopup.addEventListener('keypress', (e) => {
+        if (isValid(userNamePopup) && isValid(userDescriptionPopup) && e.which === 13) {
+            renderCard(userNamePopup,userDescriptionPopup);
+        }
+    })
+
     saveButton.addEventListener('click', function (e) {
         if (isValid(userNamePopup) && isValid(userDescriptionPopup)) {
-            const card = {
-                name: `${userNamePopup.value}`,
-                link: `${userDescriptionPopup.value}`
-            }
-            initialCards.push(card);
-            renderElements();
-            userNamePopup.value = '';
-            userDescriptionPopup.value = '';
+            renderCard(userNamePopup,userDescriptionPopup);
         }
-        removeActivePopup("popup__card");
-        removeActiveBody();
-        e.preventDefault();
     })
 }
