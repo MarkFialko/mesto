@@ -4,16 +4,25 @@ ___
 
 * :pencil2: Study project
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
 * :computer: Working with JavaScript
 * :orange_book: BEM file structure (Nested)
 * :white_check_mark: Working with HTML and CSS
 * :o: Working with popup
 * :heavy_plus_sign: Working with icon font
+<<<<<<< HEAD
 * :ok_hand: added the ability for the user to add their own cards and put likes 
 ### Plans
 
 * Add the ability to change the user's avatar
 =======
+=======
+* :ok_hand: added the ability for the user to add their own cards and put likes
+### Plans
+
+* Add the ability to change the user's avatar
+  =======
 
 ### Stack
 
@@ -23,8 +32,8 @@ ___
 
 ### Functionality
 
-* :thought_balloon: change username and user description
-* :thought_balloon: add cards with your own places
+* :thought_balloon: Change username and user description
+* :thought_balloon: Add cards with your own places
 * :thought_balloon: View full screen pictures of places
 
 ### GitHub Pages
