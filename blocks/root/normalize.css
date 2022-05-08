@@ -111,3 +111,9 @@ textarea,
 select {
     font: inherit;
 }
+
+input[type="submit"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
