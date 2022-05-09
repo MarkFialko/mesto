@@ -1,0 +1,6 @@
+.icon__like_active {
+    background-image: url("../../../../images/like-dark.svg");
+}
+.icon__like_active:hover {
+    opacity: 1;
+}

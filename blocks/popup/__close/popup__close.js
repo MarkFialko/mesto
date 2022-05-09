@@ -1,24 +1,24 @@
 export function PopupClose() {
-
-    const closeButton = document.querySelector(".popup__close");
+    const closeButtons = document.querySelectorAll(".popup__close");
 
     function removeActiveBody() {
-        let body = document.querySelector("body");
+        const body = document.querySelector("body");
         body.classList.remove("body_active");
     }
 
     function removeActivePopup() {
-        let popup = document.querySelector(".popup");
-        popup.classList.remove("popup_active");
-
+        const popups = document.querySelectorAll(".popup");
+        popups.forEach(popup => {
+            popup.classList.remove("popup_active");
+        })
     }
 
-    function removeActive(e) {
+    function removeActive() {
         removeActiveBody();
         removeActivePopup();
-        e.preventDefault();
     }
 
-    closeButton.addEventListener('click', removeActive);
-
+    closeButtons.forEach(button => {
+        button.addEventListener('click', removeActive);
+    })
 }
