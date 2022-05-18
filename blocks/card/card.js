@@ -1,6 +1,4 @@
-import {removeActiveBody} from "../popup/__form/popup__form.js"
-import {PopupClose} from "../popup/__close/popup__close.js"
-import {activeBody,activePopup} from "../popup/popup.js"
+import {openPopup} from "./../popup/popup.js"
 
 export const CardList = document.querySelector(".content__gallery")
 export const initialCards = [
@@ -45,7 +43,7 @@ export class Card {
 
         return cardElement
     }
-    
+
     _setEventListeners() {
         const image = this._element.querySelector(".card__image");
         image.addEventListener('click', (e) => {
@@ -53,10 +51,7 @@ export class Card {
             const thisImageTitle = image.nextElementSibling.children[0].textContent;
             const popup = document.querySelector(".popup__image");
 
-            activePopup("popup__image");
-            activeBody();
-            PopupClose();
-
+            openPopup("popup__image");
             popup.querySelector(".popup__image_link").src = thisImageSrc;
             popup.querySelector(".popup__image_text").textContent = thisImageTitle;
         })
@@ -93,4 +88,13 @@ export function renderElements() {
         const cardElement = card._generateCard();
         CardList.prepend(cardElement);
     })
+}
+
+export function renderCard(inputTitle, inputLink) {
+    const card = {
+        name: inputTitle,
+        link: inputLink
+    }
+    initialCards.push(card);
+    renderElements()
 }
