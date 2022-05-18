@@ -16,6 +16,7 @@ function setEventListeners(formElement, settings) {
                 changeButton(button, settings, true);
                 button.addEventListener('click', (e) => {
                     getPopup(e, formElement);
+                    changeButton(button, settings, false);
                     e.preventDefault();
                     e.stopImmediatePropagation();
                 })
