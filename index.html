@@ -43,40 +43,48 @@
     </footer>
     <div class="popup popup__user">
         <div class="popup__wrapper">
-            <div class="popup__content">
+            <div class="popup__content popup__inner">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form action="#" class="popup__form">
-                    <input type="text" class="popup__input popup__input_name" placeholder="Жак-Ив Кусто">
-                    <input type="text" class="popup__input popup__input_text-content"
-                           placeholder="Исследователь океана">
+                <form name="userForm" action="#" class="popup__form">
+                    <input name="user" type="text" id="name-input" class="popup__input popup__input_name form__input"
+                           placeholder="Жак-Ив Кусто" required>
+                    <span class="form__input-error name-input-error"></span>
+                    <input name="description" type="text" id="description-input" class="popup__input popup__input_text-content form__input"
+                           placeholder="Исследователь океана" required>
+                    <span class="form__input-error description-input-error"></span>
+                    <button name="user-save" type="submit" class="popup__button">Сохранить</button>
                 </form>
-                <input type="submit" value="Сохранить" class="popup__button">
+
                 <div class="popup__close icon-close"></div>
             </div>
         </div>
     </div>
     <div class="popup popup__card">
         <div class="popup__wrapper">
-            <div class="popup__content">
+            <div class="popup__content popup__inner">
                 <h2 class="popup__title">Новое место</h2>
-                <form action="#" class="popup__form popup__form_card">
-                    <input type="text" class="popup__input popup__input_name" placeholder="Название">
-                    <input type="text" class="popup__input popup__input_text-content"
-                           placeholder="Ссылка на картинку">
+                <form name="cardForm" action="#" class="popup__form popup__form_card">
+                    <input name="cardTitle" type="text" id="card-name-input" class="popup__input popup__input_name form__input"
+                           placeholder="Название" required>
+                    <span class="form__input-error card-name-input-error"></span>
+                    <input name="cardLink" type="url" id="link-input" class="popup__input popup__input_text-content form__input"
+                           placeholder="Ссылка на картинку" required>
+                    <span class="form__input-error link-input-error"></span>
+                    <button name="card-save" type="submit"
+                            class="popup__button popup__button_disabled popup__button_create">Создать
+                    </button>
                 </form>
-                <input type="submit" value="Создать" class="popup__button popup__button_create">
                 <div class="popup__close icon-close"></div>
             </div>
         </div>
     </div>
     <div class="popup popup__image">
-        <div class="popup__image_content">
+        <div class="popup__image_content popup__inner">
             <img class="popup__image_link"
                  src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg" alt="">
             <p class="popup__image_text">Карачаево черкессия</p>
             <div class="popup__close icon-close"></div>
         </div>
-
     </div>
     <template class="card-template">
         <div class="card content-gallery__card">
