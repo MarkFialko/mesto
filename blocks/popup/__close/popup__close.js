@@ -9,5 +9,7 @@ export function closePopup(popupSelector) {
     })
 
     const form = popup.querySelector(".popup__form");
-    form ? (form.closest(".popup__card") ? form.reset() : null) : null;
+    if (form) {
+        form.reset();
+    }
 }
