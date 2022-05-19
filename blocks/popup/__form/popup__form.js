@@ -25,7 +25,6 @@ export function getCard(formElement) {
     const inputTitle = formElement.elements.cardTitle.value;
     const inputLink = formElement.elements.cardLink.value;
     renderCard(inputTitle, inputLink);
-    formElement.reset();
 }
 
 export function fillUserForm() {

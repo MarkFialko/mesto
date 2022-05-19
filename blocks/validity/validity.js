@@ -9,8 +9,8 @@ function setEventListeners(formElement, settings) {
 
     inputList.forEach(inputElement => {
         inputElement.addEventListener("input", function () {
-            checkInputValidity(formElement, inputElement);
-            if (!checkValidityForm(formElement)) {
+            checkInputValidity(formElement, inputElement,true,settings);
+            if (!checkValidityForm(formElement,settings)) {
                 changeButton(button, settings, false);
             } else {
                 changeButton(button, settings, true);

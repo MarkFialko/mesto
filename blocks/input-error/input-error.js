@@ -1,11 +1,11 @@
-export function showInputError(formElement, inputElement, errorMessage){
+export function showInputError(formElement, inputElement, errorMessage,settings){
     let errorElement = document.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add(`form__input_type_error`);
+    inputElement.classList.add(`${settings.inputErrorClass}`);
     errorElement.textContent = errorMessage;
 };
 
-export function hideInputError(formElement, inputElement) {
+export function hideInputError(formElement, inputElement,settings) {
     let errorElement = document.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove('form__input_type_error');
+    inputElement.classList.remove(`${settings.inputErrorClass}`);
     errorElement.textContent = '';
 };

@@ -12,18 +12,20 @@ export function changeButton(button,settings,isValid) {
     }
 }
 
-export function addPenButton(e) {
+export function addPenButton(e,settings) {
     fillUserForm();
-    hideInputError(cardForm, userForm.elements.user);
-    hideInputError(cardForm, userForm.elements.description);
-    openPopup("popup__user");
+    hideInputError(cardForm, userForm.elements.user,settings);
+    hideInputError(cardForm, userForm.elements.description,settings);
+    const button = document.querySelector(`${settings.submitButtonSelector}`);
+    changeButton(button,settings,true);
+    openPopup("popup__user",settings);
     e.preventDefault();
 }
 
-export function addCardButton(e) {
+export function addCardButton(e,settings) {
     const cardForm = document.forms.cardForm;
-    hideInputError(cardForm, cardForm.elements.cardTitle);
-    hideInputError(cardForm, cardForm.elements.cardLink);
-    openPopup("popup__card");
+    hideInputError(cardForm, cardForm.elements.cardTitle,settings);
+    hideInputError(cardForm, cardForm.elements.cardLink,settings);
+    openPopup("popup__card",settings);
     e.preventDefault();
 }

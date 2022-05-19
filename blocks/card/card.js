@@ -1,5 +1,4 @@
 import {openPopup} from "./../popup/popup.js"
-
 export const CardList = document.querySelector(".content__gallery")
 export const initialCards = [
     {
@@ -51,7 +50,14 @@ export class Card {
             const thisImageTitle = image.nextElementSibling.children[0].textContent;
             const popup = document.querySelector(".popup__image");
 
-            openPopup("popup__image");
+            openPopup("popup__image",
+                {
+                    formSelector: '.popup__form',
+                    inputSelector: '.form__input',
+                    submitButtonSelector: '.popup__button',
+                    inactiveButtonClass: 'popup__button_disabled',
+                    inputErrorClass: 'form__input_type_error'
+                });
             popup.querySelector(".popup__image_link").src = thisImageSrc;
             popup.querySelector(".popup__image_text").textContent = thisImageTitle;
         })
