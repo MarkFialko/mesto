@@ -80,21 +80,24 @@ export class Card {
     }
 }
 
-export function renderElements() {
-    CardList.innerHTML = ``;
+function getCard(item) {
+    const card = new Card(item.name, item.link);
+    const cardElement = card._generateCard();
+    return cardElement;
+}
 
+export function renderElements() {
     initialCards.forEach((item) => {
-        const card = new Card(item.name, item.link);
-        const cardElement = card._generateCard();
-        CardList.prepend(cardElement);
+        const card = getCard(item)
+        CardList.prepend(card);
     })
 }
 
 export function renderCard(inputTitle, inputLink) {
-    const card = {
+    const cardElement = {
         name: inputTitle,
         link: inputLink
     }
-    initialCards.push(card);
-    renderElements()
+    const card = getCard(cardElement);
+    CardList.prepend(card);
 }
