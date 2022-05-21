@@ -1,8 +1,8 @@
-import { hideInputError} from "./../input-error/input-error.js"
+import {hideInputError} from "./../input-error/input-error.js"
 import {renderElements} from "./../card/card.js"
 import {openPopup} from "./../popup/popup.js"
 import {enableValidation} from "./../validity/validity.js"
-import {addPenButton,addCardButton} from "./../popup/__button/popup__buton.js"
+import {addPenButton, addCardButton} from "./../popup/__button/popup__buton.js"
 
 const settings = {
     formSelector: '.popup__form',
@@ -14,12 +14,12 @@ const settings = {
 
 const penButton = document.querySelector(".user-title__pen");
 penButton.addEventListener('click', function (e) {
-    addPenButton(e,settings);
+    addPenButton(e, settings);
 })
 
 const cardButton = document.querySelector(".content-info__button");
 cardButton.addEventListener('click', function (e) {
-    addCardButton(e,settings);
+    addCardButton(e, settings);
 })
 
 renderElements();
