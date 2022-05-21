@@ -28,8 +28,8 @@ function setEventListeners(formElement, settings) {
 export function enableValidation(settings) {
     let formList = Array.from(document.querySelectorAll("form"));
     formList.forEach(formElement => {
-        formElement.addEventListener("submit", function (evt) {
-            evt.preventDefault();
+        formElement.addEventListener("submit", function (e) {
+            e.preventDefault();
         })
         setEventListeners(formElement, settings);
     })

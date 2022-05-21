@@ -1,4 +1,5 @@
 import {openPopup} from "./../popup/popup.js"
+
 export const CardList = document.querySelector(".content__gallery")
 export const initialCards = [
     {
