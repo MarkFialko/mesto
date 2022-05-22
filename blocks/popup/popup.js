@@ -1,47 +1,32 @@
-export function activeBody() {
-    const body = document.querySelector("body");
-    body.classList.toggle("body_active");
+import {closePopup} from "./__close/popup__close.js"
+import {changeButton} from "./__button/popup__buton.js"
+
+export function checkEscape(e, popupSelector, button, settings) {
+    if (e.key === "Escape") {
+        closePopup(popupSelector);
+        if (button !== null) {
+            changeButton(button, settings, false);
+        }
+    }
 }
 
-export function activePopup(
-    popupSelector,
-    userNamePopup = null,
-    userDescriptionPopup = null,
-    name = null,
-    description = null
-) {
+export function openPopup(popupSelector, settings) {
+    document.body.classList.add("body_active");
+
     const popup = document.querySelector(`.${popupSelector}`)
-    popup.classList.toggle("popup_active");
-    if (name !== null) {
-        userNamePopup.value = name.textContent;
-        userDescriptionPopup.value = description.textContent;
-    }
-}
+    const button = popup.querySelector(`${settings.submitButtonSelector}`);
 
-export function getUserPopup() {
-    const editButton = document.querySelector(".user-title__pen");
-    let popupForm = document.querySelector(".popup__form");
-    let name = document.querySelector(".user-title__name");
-    let description = document.querySelector(".user-description__subtitle");
-    let userNamePopup = popupForm.children[0];  // input имени
-    let userDescriptionPopup = popupForm.children[1];  // input описания
+    popup.classList.add("popup_active");
+    popup.addEventListener('mousedown', (e) => {
+        if (!e.target.closest(".popup__inner") || e.target.closest(".popup__close")) {
+            closePopup(popupSelector);
+            if (button !== null) {
+                changeButton(button, settings, false);
+            }
+        }
+    })
 
-    function toggleActive() {
-        activeBody();
-        activePopup("popup__user", userNamePopup, userDescriptionPopup, name, description);
-    }
-
-    editButton.addEventListener('click', toggleActive)
-}
-
-export function getCardPopup() {
-    const editButton = document.querySelector(".content-info__button");
-    let popupForm = document.querySelector(".popup__form");
-
-    function toggleActive() {
-        activeBody();
-        activePopup("popup__card");
-    }
-
-    editButton.addEventListener('click', toggleActive)
+    document.addEventListener('keydown', (e) => {
+        checkEscape(e, popupSelector, button, settings);
+    })
 }

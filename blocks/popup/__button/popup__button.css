@@ -9,8 +9,16 @@
     transition: background-color .3s ease-in-out;
     color: #ffffff;
     cursor: pointer;
+    width: 100%;
+    border: none;
 }
 
 .popup__button:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 480px) {
+    .popup__button {
+        padding: 14px 0;
+    }
 }

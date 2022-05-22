@@ -1,24 +1,16 @@
-export function PopupClose() {
-    const closeButtons = document.querySelectorAll(".popup__close");
+import {checkEscape} from "./../popup.js"
 
-    function removeActiveBody() {
-        const body = document.querySelector("body");
-        body.classList.remove("body_active");
-    }
+export function closePopup(popupSelector) {
+    document.body.classList.remove("body_active");
 
-    function removeActivePopup() {
-        const popups = document.querySelectorAll(".popup");
-        popups.forEach(popup => {
-            popup.classList.remove("popup_active");
-        })
-    }
-
-    function removeActive() {
-        removeActiveBody();
-        removeActivePopup();
-    }
-
-    closeButtons.forEach(button => {
-        button.addEventListener('click', removeActive);
+    const popup = document.querySelector(`.${popupSelector}`);
+    popup.classList.remove("popup_active");
+    document.removeEventListener('keydown', (e) => {
+        checkEscape(e, popupSelector);
     })
+
+    const form = popup.querySelector(".popup__form");
+    if (form) {
+        form.reset();
+    }
 }

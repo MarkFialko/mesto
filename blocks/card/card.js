@@ -1,6 +1,4 @@
-import {removeActiveBody} from "../popup/__form/popup__form.js"
-import {PopupClose} from "../popup/__close/popup__close.js"
-import {activeBody,activePopup} from "../popup/popup.js"
+import {openPopup} from "./../popup/popup.js"
 
 export const CardList = document.querySelector(".content__gallery")
 export const initialCards = [
@@ -45,7 +43,7 @@ export class Card {
 
         return cardElement
     }
-    
+
     _setEventListeners() {
         const image = this._element.querySelector(".card__image");
         image.addEventListener('click', (e) => {
@@ -53,10 +51,14 @@ export class Card {
             const thisImageTitle = image.nextElementSibling.children[0].textContent;
             const popup = document.querySelector(".popup__image");
 
-            activePopup("popup__image");
-            activeBody();
-            PopupClose();
-
+            openPopup("popup__image",
+                {
+                    formSelector: '.popup__form',
+                    inputSelector: '.form__input',
+                    submitButtonSelector: '.popup__button',
+                    inactiveButtonClass: 'popup__button_disabled',
+                    inputErrorClass: 'form__input_type_error'
+                });
             popup.querySelector(".popup__image_link").src = thisImageSrc;
             popup.querySelector(".popup__image_text").textContent = thisImageTitle;
         })
@@ -85,12 +87,24 @@ export class Card {
     }
 }
 
-export function renderElements() {
-    CardList.innerHTML = ``;
+function getCard(item) {
+    const card = new Card(item.name, item.link);
+    const cardElement = card._generateCard();
+    return cardElement;
+}
 
+export function renderElements() {
     initialCards.forEach((item) => {
-        const card = new Card(item.name, item.link);
-        const cardElement = card._generateCard();
-        CardList.prepend(cardElement);
+        const card = getCard(item)
+        CardList.prepend(card);
     })
+}
+
+export function renderCard(inputTitle, inputLink) {
+    const cardElement = {
+        name: inputTitle,
+        link: inputLink
+    }
+    const card = getCard(cardElement);
+    CardList.prepend(card);
 }

@@ -32,18 +32,19 @@
 
 @import url(../user-description/__subtitle/user-description__subtitle.css);
 @import url(../user-description/__title/user-description__title.css);
-
+@import url(../form/form__input-error.css);
 @import url(../user-title/user-title.css);
 @import url(../user-title/__name/user-title__name.css);
 @import url(../user-title/__pen/user-title__pen.css);
-
 @import url(../popup/popup.css);
 @import url(../popup/__wrapper/popup__wrapper.css);
 @import url(../popup/__wrapper/_image/popup__wrapper_image.css);
 @import url(../popup/__content/popup__content.css);
 @import url(../popup/__title/popup__title.css);
 @import url(../popup/__button/popup__button.css);
+@import url(../popup/__button/_disabled/popup__button_disabled.css);
 @import url(../popup/__input/popup__input.css);
+@import url(../form/__input/_type/_error/form__input_type__error.css);
 @import url(../popup/__close/popup__close.css);
 @import url(../popup/_active/popup_active.css);
 @import url(../popup/__image/popup__image.css);
