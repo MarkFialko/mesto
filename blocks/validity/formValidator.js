@@ -1,5 +1,5 @@
 import {Card, CardList} from "./../card/card.js"
-import {closePopup} from "./../popup/popup.js"
+import {checkEscape, closePopup} from "./../popup/popup.js"
 
 class FormValidator {
     constructor(settings, form) {
@@ -70,6 +70,10 @@ class FormValidator {
             })
         })
     }
+
+    enableValidation() {
+        this._setEventListeners();
+    }
 }
 
 class UserFormValidator extends FormValidator {
@@ -95,7 +99,7 @@ class UserFormValidator extends FormValidator {
                 this._getUser();
                 super._changeButton(true);
 
-                closePopup("popup__user")
+                closePopup()
             }
         })
 
@@ -143,7 +147,7 @@ class CardFormValidator extends FormValidator {
                 super._changeButton(false);
                 this._form.reset();
 
-                closePopup("popup__card");
+                closePopup();
             }
         })
     }

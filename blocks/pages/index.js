@@ -1,6 +1,6 @@
 import {renderElements} from "./../card/card.js"
 import {FormValidator, CardFormValidator, UserFormValidator} from "./../validity/formValidator.js"
-import {openPopup, closePopup} from "./../popup/popup.js"
+import {openPopup} from "./../popup/popup.js"
 
 const settings = {
     formSelector: '.popup__form',
@@ -49,7 +49,7 @@ const penButton = document.querySelector(".user-title__pen");
 penButton.addEventListener('click', fillUserForm);
 
 const cardButton = document.querySelector(".content-info__button");
-cardButton.addEventListener('click', () => {
+cardButton.addEventListener('click', (e) => {
     const card = formMap.get("cardForm");
     card._inputs.forEach(cardInput => {
         card._hideInputError(cardInput);
@@ -57,6 +57,7 @@ cardButton.addEventListener('click', () => {
     card._form.reset();
     card._changeButton(false);
     openPopup("popup__card");
+    e.preventDefault();
 });
 
 renderElements();
