@@ -1,4 +1,4 @@
-import {openPopup} from "./../popup/popup.js"
+import {checkEscape} from "./../popup/popup.js"
 
 const CardList = document.querySelector(".content__gallery")
 const initialCards = [
@@ -45,6 +45,29 @@ export class Card {
         return cardElement
     }
 
+    _closeImage() {
+        document.body.classList.remove("body_active");
+
+        const popup = document.querySelector(`.popup__image`);
+        popup.classList.remove("popup_active");
+
+        document.removeEventListener('keydown', checkEscape)
+    }
+
+    _openImage() {
+        document.body.classList.add("body_active");
+
+        const popup = document.querySelector(`.popup__image`)
+        popup.classList.add("popup_active");
+        popup.addEventListener('mousedown', (e) => {
+            if (!e.target.closest(".popup__inner") || e.target.closest(".popup__close")) {
+                this._closeImage();
+            }
+        })
+
+        document.addEventListener('keydown', checkEscape);
+    }
+
     _setEventListeners() {
         const image = this._element.querySelector(".card__image");
         image.addEventListener('click', (e) => {
@@ -52,7 +75,7 @@ export class Card {
             const thisImageTitle = image.nextElementSibling.children[0].textContent;
             const popup = document.querySelector(".popup__image");
 
-            openPopup("popup__image");
+            this._openImage();
             popup.querySelector(".popup__image_link").src = thisImageSrc;
             popup.querySelector(".popup__image_text").textContent = thisImageTitle;
         })
