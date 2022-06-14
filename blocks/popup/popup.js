@@ -23,7 +23,7 @@ function openPopup(popupSelector) {
 function closePopup() {
     document.body.classList.remove("body_active");
 
-    const activePopup = document.querySelector(".popup_active").className.split(" ")[1];
+    const activePopup = document.querySelector(".popup_active").className.split(" ")[1]; // active-popup selector
     const popup = document.querySelector(`.${activePopup}`);
     popup.classList.remove("popup_active");
 

@@ -10,25 +10,14 @@ const settings = {
     inputErrorClass: 'form__input_type_error'
 }
 
-const formMap = new Map();
 
-const forms = document.forms;
-Array.from(forms).forEach(form => {
-    let newForm;
-    if (form.name === "userForm") {
-        newForm = new UserFormValidator(settings, form)
-        formMap.set("userForm", newForm)
-    } else if (form.name === "cardForm") {
-        newForm = new CardFormValidator(settings, form);
-        formMap.set("cardForm", newForm);
-    } else {
-        newForm = new FormValidator(settings, form);
-    }
-    newForm.enableValidation();
-})
+const user = new UserFormValidator(settings, document.forms.userForm);
+const card = new CardFormValidator(settings, document.forms.cardForm);
+
+user.enableValidation();
+card.enableValidation();
 
 function fillUserForm() {
-    const user = formMap.get("userForm");
     user._inputs.forEach(userInput => {
         user._hideInputError(userInput);
     })
@@ -42,6 +31,7 @@ function fillUserForm() {
     userForm.elements.user.placeholder = name;
     userForm.elements.description.value = description;
     userForm.elements.description.placeholder = description;
+
     openPopup("popup__user");
 }
 
@@ -50,14 +40,15 @@ penButton.addEventListener('click', fillUserForm);
 
 const cardButton = document.querySelector(".content-info__button");
 cardButton.addEventListener('click', (e) => {
-    const card = formMap.get("cardForm");
+    e.preventDefault();
+
     card._inputs.forEach(cardInput => {
         card._hideInputError(cardInput);
     })
     card._form.reset();
     card._changeButton(false);
+
     openPopup("popup__card");
-    e.preventDefault();
 });
 
 renderElements();

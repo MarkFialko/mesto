@@ -1,4 +1,4 @@
-import {checkEscape} from "./../popup/popup.js"
+import {checkEscape} from "../popup/popup.js"
 
 const CardList = document.querySelector(".content__gallery")
 const initialCards = [

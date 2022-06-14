@@ -1,5 +1,5 @@
-import {Card, CardList} from "./../card/card.js"
-import {checkEscape, closePopup} from "./../popup/popup.js"
+import {Card, CardList} from "../card/card.js"
+import {checkEscape, closePopup} from "../popup/popup.js"
 
 class FormValidator {
     constructor(settings, form) {
@@ -10,13 +10,13 @@ class FormValidator {
     }
 
     _checkValidityForm() {
-        let countValidity = 0;
+        let countValidityInputs = 0;
         for (let i = 0; i < this._inputs.length; i++) {
             if (this._checkInputValidity(this._inputs[i], false)) {
-                countValidity++;
+                countValidityInputs++;
             }
         }
-        if (countValidity === this._inputs.length) {
+        if (countValidityInputs === this._inputs.length) {
             this._changeButton(true);
             return true;
         }
