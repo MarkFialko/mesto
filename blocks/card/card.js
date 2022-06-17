@@ -1,7 +1,7 @@
-import {openPopup} from "./../popup/popup.js"
+import {checkEscape} from "../popup/popup.js"
 
-export const CardList = document.querySelector(".content__gallery")
-export const initialCards = [
+const CardList = document.querySelector(".content__gallery")
+const initialCards = [
     {
         name: 'Архыз',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -29,19 +29,43 @@ export const initialCards = [
 ];
 
 export class Card {
-    constructor(name, link) {
+    constructor({name, link}, selector) {
         this._name = name;
         this._link = link;
+        this._selector = selector;
     }
 
     _getTemplate() {
         const cardElement = document
-            .querySelector(".card-template")
+            .querySelector(`.${this._selector}`)
             .content
             .querySelector('.card')
             .cloneNode(true)
 
         return cardElement
+    }
+
+    _closeImage() {
+        document.body.classList.remove("body_active");
+
+        const popup = document.querySelector(`.popup__image`);
+        popup.classList.remove("popup_active");
+
+        document.removeEventListener('keydown', checkEscape)
+    }
+
+    _openImage() {
+        document.body.classList.add("body_active");
+
+        const popup = document.querySelector(`.popup__image`)
+        popup.classList.add("popup_active");
+        popup.addEventListener('mousedown', (e) => {
+            if (!e.target.closest(".popup__inner") || e.target.closest(".popup__close")) {
+                this._closeImage();
+            }
+        })
+
+        document.addEventListener('keydown', checkEscape);
     }
 
     _setEventListeners() {
@@ -51,14 +75,7 @@ export class Card {
             const thisImageTitle = image.nextElementSibling.children[0].textContent;
             const popup = document.querySelector(".popup__image");
 
-            openPopup("popup__image",
-                {
-                    formSelector: '.popup__form',
-                    inputSelector: '.form__input',
-                    submitButtonSelector: '.popup__button',
-                    inactiveButtonClass: 'popup__button_disabled',
-                    inputErrorClass: 'form__input_type_error'
-                });
+            this._openImage();
             popup.querySelector(".popup__image_link").src = thisImageSrc;
             popup.querySelector(".popup__image_text").textContent = thisImageTitle;
         })
@@ -76,7 +93,7 @@ export class Card {
         })
     }
 
-    _generateCard() {
+    generateCard() {
         this._element = this._getTemplate()
         this._setEventListeners()
 
@@ -88,23 +105,16 @@ export class Card {
 }
 
 function getCard(item) {
-    const card = new Card(item.name, item.link);
-    const cardElement = card._generateCard();
+    const card = new Card(item, "card-template");
+    const cardElement = card.generateCard();
     return cardElement;
 }
 
-export function renderElements() {
+function renderElements() {
     initialCards.forEach((item) => {
         const card = getCard(item)
         CardList.prepend(card);
     })
 }
 
-export function renderCard(inputTitle, inputLink) {
-    const cardElement = {
-        name: inputTitle,
-        link: inputLink
-    }
-    const card = getCard(cardElement);
-    CardList.prepend(card);
-}
+export {CardList, initialCards, getCard, renderElements}
