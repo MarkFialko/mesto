@@ -14,9 +14,14 @@ export default class FormValidator {
         this._button.classList.remove(inactiveButtonClass)
     }
 
+    _checkTrim(formElement) {
+        return formElement.value.trim() === formElement.value
+    }
+
     _checkFormValid() {
         const countValidity = Array.from(this._requiredElements).reduce((itemOne, itemTwo) => {
-            return Number(itemOne.validity.valid) + Number(itemTwo.validity.valid)
+            this._checkTrim(itemOne)
+            return Number(itemOne.validity.valid && this._checkTrim(itemOne)) + Number(itemTwo.validity.valid && this._checkTrim(itemTwo))
         })
 
         return this._requiredElements.length === countValidity

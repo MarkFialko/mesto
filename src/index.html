@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Место</title>
-    <link rel="stylesheet" href="blocks/pages/index.css">
 </head>
 <body>
 <div class="wrapper">
     <header class="header">
         <div class="header__container">
-            <img src="images/logo.svg" alt="Логотип">
+            <img src="<%=require('./images/logo.svg')%>" alt="Логотип">
         </div>
     </header>
     <main class="content">
@@ -19,7 +18,7 @@
             <div class="content__info content-info">
                 <div class="content-info__user content-info-user">
                     <div class="content-info-user__image">
-                        <img src="images/user.jpg" alt="Аватар пользователя">
+                        <img src="<%=require('./images/user.jpg')%>" alt="Аватар пользователя">
                     </div>
                     <div class="content-info-user__description user-description">
                         <div class="user-description__title user-title">
@@ -104,6 +103,5 @@
         </div>
     </template>
 </div>
-<script type="module" src="blocks/pages/index.js"></script>
 </body>
 </html>

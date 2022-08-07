@@ -1,3 +1,4 @@
+import './index.css'
 import UserInfo from "../components/UserInfo.js"
 import Section from "../components/Section.js";
 import Card from "../components/Card.js";
