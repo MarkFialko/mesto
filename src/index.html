@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Место</title>
-    <link rel="stylesheet" href="./blocks/pages/index.css">
+    <link rel="stylesheet" href="blocks/pages/index.css">
 </head>
 <body>
 <div class="wrapper">
     <header class="header">
         <div class="header__container">
-            <img src="./images/logo.svg" alt="Логотип">
+            <img src="images/logo.svg" alt="Логотип">
         </div>
     </header>
     <main class="content">
@@ -19,14 +19,14 @@
             <div class="content__info content-info">
                 <div class="content-info__user content-info-user">
                     <div class="content-info-user__image">
-                        <img src="./images/user.jpg" alt="Аватар пользователя">
+                        <img src="images/user.jpg" alt="Аватар пользователя">
                     </div>
                     <div class="content-info-user__description user-description">
                         <div class="user-description__title user-title">
-                            <div class="user-title__name">Жак-Ив Кусто</div>
+                            <div class="user-title__name"></div>
                             <div class="user-title__pen edit__button"><p class="icon-pen"></p></div>
                         </div>
-                        <p class="user-description__subtitle">Исследователь океана</p>
+                        <p class="user-description__subtitle"></p>
                     </div>
                 </div>
                 <a href="#" class="content-info__button icon-plus edit__button"></a>
@@ -46,10 +46,13 @@
             <div class="popup__content popup__inner">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form name="userForm" action="#" class="popup__form user-form">
-                    <input name="user" type="text" id="name-input" class="popup__input popup__input_name form__input"
-                           placeholder="Жак-Ив Кусто" required>
+                    <input name="user" data-error="Заполните это поле." type="text" id="name-input"
+                           class="popup__input popup__input_name form__input"
+                           placeholder="Жак-Ив Кусто" value="Жак-ив Кусто" required>
                     <span class="form__input-error name-input-error"></span>
-                    <input name="description" type="text" id="description-input" class="popup__input popup__input_text-content form__input"
+                    <input data-error="Заполните это поле." name="description" value="Исследователь океана" type="text"
+                           id="description-input"
+                           class="popup__input popup__input_text-content form__input"
                            placeholder="Исследователь океана" required>
                     <span class="form__input-error description-input-error"></span>
                     <button name="user-save" type="submit" class="popup__button">Сохранить</button>
@@ -64,10 +67,12 @@
             <div class="popup__content popup__inner">
                 <h2 class="popup__title">Новое место</h2>
                 <form name="cardForm" action="#" class="popup__form popup__form_card">
-                    <input name="cardTitle" type="text" id="card-name-input" class="popup__input popup__input_name form__input"
+                    <input data-error="Заполните это поле." name="cardTitle" type="text" id="card-name-input"
+                           class="popup__input popup__input_name form__input"
                            placeholder="Название" required>
                     <span class="form__input-error card-name-input-error"></span>
-                    <input name="cardLink" type="url" id="link-input" class="popup__input popup__input_text-content form__input"
+                    <input data-error="Введите URL." name="cardLink" type="url" id="link-input"
+                           class="popup__input popup__input_text-content form__input"
                            placeholder="Ссылка на картинку" required>
                     <span class="form__input-error link-input-error"></span>
                     <button name="card-save" type="submit"
@@ -99,6 +104,6 @@
         </div>
     </template>
 </div>
-<script type="module" src="./blocks/pages/index.js"></script>
+<script type="module" src="blocks/pages/index.js"></script>
 </body>
 </html>
