@@ -1,13 +1,12 @@
 @font-face {
     font-family: 'icons';
-    src: url('../fonts/icons.woff?5p2nit') format('woff');
+    src: url('icons.woff?5p2nit') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: block;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icons';
     speak: never;
     font-style: normal;
@@ -16,7 +15,6 @@
     text-transform: none;
     line-height: 1;
 
-    /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
