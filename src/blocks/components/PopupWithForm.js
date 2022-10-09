@@ -11,7 +11,7 @@ export default class PopupWithForm extends Popup {
     _getInputValues() {
         return {
             name: `${this._requiredElements[0].value}`,
-            info: `${this._requiredElements[1].value}`,
+            about: `${this._requiredElements[1].value}`,
         }
     }
 
@@ -26,7 +26,6 @@ export default class PopupWithForm extends Popup {
             e.stopImmediatePropagation()
 
             this._submitCallback(this._getInputValues())
-            this.close()
         })
     }
 

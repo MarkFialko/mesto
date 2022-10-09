@@ -15,6 +15,7 @@ export default class FormValidator {
     }
 
     _checkTrim(formElement) {
+        console.log(formElement.value.trim() === formElement.value)
         return formElement.value.trim() === formElement.value
     }
 
