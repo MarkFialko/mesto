@@ -25,7 +25,7 @@ export default class API {
             headers: this._headers,
             body: JSON.stringify({
                 name: userData.name,
-                about: userData.description,
+                about: userData.about,
             })
         })
             .then(response => this._handleResponse(response))

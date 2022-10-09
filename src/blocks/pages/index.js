@@ -80,8 +80,6 @@ editUser.addEventListener("click", (e) => {
     userFormValidation.hideError(null, true)
     userFormValidation.changeButton(true, settings)
 
-    document.querySelector("#name-input").placeholder = user.getUserInfo().name
-    document.querySelector("#description-input").placeholder = user.getUserInfo().about
     document.querySelector("#name-input").value = user.getUserInfo().name
     document.querySelector("#description-input").value = user.getUserInfo().about
 
