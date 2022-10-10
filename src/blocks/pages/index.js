@@ -106,3 +106,6 @@ Promise.all([getUserInfo])
             userInfo.about
         )
     })
+    .catch(error => {
+        console.log(`Ошибка загрузки данных ${error}`)
+    })
