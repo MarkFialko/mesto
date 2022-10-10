@@ -100,12 +100,12 @@ cardFormValidation.setEventListeners()
 
 
 Promise.all([getUserInfo])
-    .then(([userInfo]) => {
+    .then((userInfo) => {
         user.setUserInfo(
             userInfo.name,
             userInfo.about
         )
     })
     .catch(error => {
-        console.log(`Ошибка загрузки данных ${error}`)
+        console.log(`Ошибка загрузки данных: ${error}`)
     })
