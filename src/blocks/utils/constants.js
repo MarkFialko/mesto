@@ -35,11 +35,14 @@ const cardList = ".content__gallery",
     userSettings = {
         nameSelector: ".user-title__name",
         aboutSelector: ".user-description__subtitle",
+        avatarSelector: ".content-info-user__avatar"
     },
     editUser = document.querySelector(".user-title__pen"),
     editCard = document.querySelector(".content-info__button"),
+    editAvatar = document.querySelector(".content-info-user__image"),
     userForm = document.forms["userForm"],
     cardForm = document.forms["cardForm"],
+    avatarForm = document.forms["avatarForm"],
     apiSettings = {
         baseUrl: "http://95.82.203.66",
         headers: {
@@ -48,6 +51,22 @@ const cardList = ".content__gallery",
         }
     },
     userSaveButton = document.querySelector("[name=user-save]"),
-    cardSaveButton = document.querySelector("[name=card-save]")
+    cardSaveButton = document.querySelector("[name=card-save]"),
+    avatarSaveButton = document.querySelector("[name=avatar-save]")
 
-export {cardList, initialCards, settings, userSettings, editUser, editCard, userForm, cardForm, apiSettings, userSaveButton,cardSaveButton}
+export {
+    cardList,
+    initialCards,
+    settings,
+    userSettings,
+    editUser,
+    editCard,
+    userForm,
+    cardForm,
+    apiSettings,
+    userSaveButton,
+    cardSaveButton,
+    editAvatar,
+    avatarForm,
+    avatarSaveButton
+}
