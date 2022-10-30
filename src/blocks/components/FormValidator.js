@@ -19,11 +19,13 @@ export default class FormValidator {
     }
 
     _checkFormValid() {
+        if (this._requiredElements.length === 1) {
+            return this._requiredElements[0].validity.valid && this._checkTrim(this._requiredElements[0])
+        }
         const countValidity = Array.from(this._requiredElements).reduce((itemOne, itemTwo) => {
             this._checkTrim(itemOne)
             return Number(itemOne.validity.valid && this._checkTrim(itemOne)) + Number(itemTwo.validity.valid && this._checkTrim(itemTwo))
         })
-
         return this._requiredElements.length === countValidity
     }
 

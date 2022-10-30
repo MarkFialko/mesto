@@ -5,8 +5,11 @@ import Card from "../components/Card.js";
 import API from "../components/API.js";
 import {
     apiSettings,
+    avatarForm,
+    avatarSaveButton,
     cardForm,
     cardList,
+    editAvatar,
     editCard,
     editUser,
     initialCards,
@@ -43,15 +46,19 @@ cardSection.render()
 
 const userFormValidation = new FormValidator(settings, userForm)
 const cardFormValidation = new FormValidator(settings, cardForm)
+const avatarFormValidation = new FormValidator(settings, avatarForm)
 
 const userPopup = new PopupWithForm(
     {
         popupSelector: ".popup__user",
-        submitCallback: ({name, about}) => {
+        submitCallback: (profileData) => {
             userSaveButton.textContent = "Сохранение..."
-            api.editProfile({name, about})
-                .then(userInfo => {
-                    user.setUserInfo(userInfo.name, userInfo.about)
+            api.editProfile(profileData)
+                .then(response => {
+                    user.setUserInfo({
+                        name: response.name,
+                        about: response.about,
+                    })
                 })
                 .catch((error) => {
                     console.log(`Ошибка редактирования профиля ${error}`)
@@ -73,6 +80,39 @@ const cardPopup = new PopupWithForm(
         }
     }
 )
+
+
+const avatarPopup = new PopupWithForm(
+    {
+        popupSelector: ".popup__avatar",
+        submitCallback: (avatarData) => {
+            avatarSaveButton.textContent = "Сохранение..."
+            api.updateAvatar(avatarData)
+                .then(() => {
+                    user.setUserAvatar({
+                        avatar: avatarData.avatar
+                    })
+                })
+                .catch((error) => {
+                    console.log(`Ошибка редактирования профиля ${error}`)
+                })
+                .finally(() => {
+                    avatarSaveButton.textContent = "Сохранить"
+                    avatarPopup.close()
+                })
+        }
+    }
+)
+
+
+editAvatar.addEventListener("click", (e) => {
+    e.preventDefault()
+
+    avatarFormValidation.hideError(null, true)
+    avatarFormValidation.changeButton(false, settings)
+
+    avatarPopup.setEventListeners()
+})
 
 editUser.addEventListener("click", (e) => {
     e.preventDefault()
@@ -97,14 +137,17 @@ editCard.addEventListener("click", (e) => {
 
 userFormValidation.setEventListeners()
 cardFormValidation.setEventListeners()
-
+avatarFormValidation.setEventListeners()
 
 Promise.all([getUserInfo])
-    .then((userInfo) => {
-        user.setUserInfo(
-            userInfo.name,
-            userInfo.about
-        )
+    .then(([userInfo]) => {
+        user.setUserInfo({
+            name: userInfo.name,
+            about: userInfo.about,
+        })
+        user.setUserAvatar({
+            avatar: userInfo.avatar
+        })
     })
     .catch(error => {
         console.log(`Ошибка загрузки данных: ${error}`)
