@@ -11,6 +11,7 @@ export default class FormValidator {
             this._button.classList.add(inactiveButtonClass)
             return
         }
+
         this._button.classList.remove(inactiveButtonClass)
     }
 
@@ -22,10 +23,12 @@ export default class FormValidator {
         if (this._requiredElements.length === 1) {
             return this._requiredElements[0].validity.valid && this._checkTrim(this._requiredElements[0])
         }
+
         const countValidity = Array.from(this._requiredElements).reduce((itemOne, itemTwo) => {
             this._checkTrim(itemOne)
             return Number(itemOne.validity.valid && this._checkTrim(itemOne)) + Number(itemTwo.validity.valid && this._checkTrim(itemTwo))
         })
+
         return this._requiredElements.length === countValidity
     }
 
@@ -40,6 +43,7 @@ export default class FormValidator {
                 const errorElement = this._form.querySelector(`.${requiredElement.id}-error`)
                 errorElement.textContent = ''
             })
+
             return
         }
 
@@ -55,6 +59,7 @@ export default class FormValidator {
         this._requiredElements.forEach(requiredElement => {
             requiredElement.addEventListener("input", () => {
                 this.changeButton(this._checkFormValid(), this._settings)
+
                 if (requiredElement.validity.valid && this._isEmpty(requiredElement)) {
                     this.hideError(requiredElement)
                 } else {

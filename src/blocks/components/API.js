@@ -12,7 +12,7 @@ export default class API {
         return Promise.reject(`Ошибка: ${res.status}`)
     }
 
-    _handleResponseURL(res) {
+    _handleResponseWithoutJson(res) {
         if (res.ok) {
             return Promise.resolve()
         }
@@ -48,6 +48,6 @@ export default class API {
                 avatar: userData.avatar
             })
         })
-            .then(response => this._handleResponseURL(response))
+            .then(response => this._handleResponseWithoutJson(response))
     }
 }

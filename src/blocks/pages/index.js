@@ -48,25 +48,52 @@ const userFormValidation = new FormValidator(settings, userForm)
 const cardFormValidation = new FormValidator(settings, cardForm)
 const avatarFormValidation = new FormValidator(settings, avatarForm)
 
+
+const profileFetching = (userData,apiCallback,submitButton,popup,handler) => {
+    submitButton.textContent = "Сохранение..."
+    apiCallback(userData)
+        .then((response = userData) => {
+            handler(response)
+        })
+        .catch((error) => {
+            console.log(`Ошибка редактирования профиля ${error}`)
+        })
+        .finally(() => {
+            submitButton.textContent = "Сохранить"
+            popup.close()
+        })
+}
+
+const avatarHandler = (avatarData) => {
+    user.setUserAvatar({
+        avatar: avatarData.avatar
+    })
+}
+
+const userHandler = (response) => {
+    user.setUserInfo({
+        name: response.name,
+        about: response.about,
+    })
+}
+
+
+const avatarPopup = new PopupWithForm(
+    {
+        popupSelector: ".popup__avatar",
+        submitCallback: (avatarData) => {
+            profileFetching(avatarData,api.updateAvatar.bind(api),avatarSaveButton,avatarPopup,avatarHandler)
+
+        }
+    }
+)
+
+
 const userPopup = new PopupWithForm(
     {
         popupSelector: ".popup__user",
         submitCallback: (profileData) => {
-            userSaveButton.textContent = "Сохранение..."
-            api.editProfile(profileData)
-                .then(response => {
-                    user.setUserInfo({
-                        name: response.name,
-                        about: response.about,
-                    })
-                })
-                .catch((error) => {
-                    console.log(`Ошибка редактирования профиля ${error}`)
-                })
-                .finally(() => {
-                    userSaveButton.textContent = "Сохранить"
-                    userPopup.close()
-                })
+            profileFetching(profileData,api.editProfile.bind(api),userSaveButton,userPopup,userHandler)
         }
     }
 )
@@ -82,27 +109,6 @@ const cardPopup = new PopupWithForm(
 )
 
 
-const avatarPopup = new PopupWithForm(
-    {
-        popupSelector: ".popup__avatar",
-        submitCallback: (avatarData) => {
-            avatarSaveButton.textContent = "Сохранение..."
-            api.updateAvatar(avatarData)
-                .then(() => {
-                    user.setUserAvatar({
-                        avatar: avatarData.avatar
-                    })
-                })
-                .catch((error) => {
-                    console.log(`Ошибка редактирования профиля ${error}`)
-                })
-                .finally(() => {
-                    avatarSaveButton.textContent = "Сохранить"
-                    avatarPopup.close()
-                })
-        }
-    }
-)
 
 
 editAvatar.addEventListener("click", (e) => {
