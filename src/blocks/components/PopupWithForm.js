@@ -9,10 +9,13 @@ export default class PopupWithForm extends Popup {
     }
 
     _getInputValues() {
-        return {
-            name: `${this._requiredElements[0].value}`,
-            info: `${this._requiredElements[1].value}`,
-        }
+        this._formData = {}
+
+        Array.from(this._requiredElements).forEach(inputData => {
+            this._formData[inputData.dataset.info] = inputData.value
+        })
+
+        return this._formData
     }
 
     close() {
@@ -26,7 +29,6 @@ export default class PopupWithForm extends Popup {
             e.stopImmediatePropagation()
 
             this._submitCallback(this._getInputValues())
-            this.close()
         })
     }
 
